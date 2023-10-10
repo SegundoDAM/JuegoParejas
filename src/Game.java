@@ -50,6 +50,7 @@ public class Game {
 		if (ocultas.getValueAt(origen) == -1) {
 			ocultas.setValueAt(origen, tablero.getValueAt(origen));
 			retorno = true;
+			//HOla
 		}
 		return retorno;
 	}
