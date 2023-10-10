@@ -7,15 +7,15 @@ public class Tablero {
 		casillas = new int[size][size];
 	}
 
-	public int getValueAt(int[] posicion) {
-		return casillas[posicion[0]][posicion[1]];
+	public int getValueAt(Coordenada posicion) {
+		return casillas[posicion.getPosicionX()][posicion.getPosicionY()];
 	}
 
-	public void setValueAt(int[] posicion, int valor) {
-		casillas[posicion[0]][posicion[1]] = valor;
+	public void setValueAt(Coordenada posicion, int valor) {
+		casillas[posicion.getPosicionX()][posicion.getPosicionY()] = valor;
 	}
 
-	public boolean comprobarParejas(int[] origen, int[] destino) {
+	public boolean comprobarParejas(Coordenada origen, Coordenada destino) {
 		return getValueAt(origen) == getValueAt(destino);
 	}
 

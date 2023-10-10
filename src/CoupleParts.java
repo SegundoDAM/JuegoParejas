@@ -19,14 +19,7 @@ public class CoupleParts {
 	
 	
 
-	public static int[] pedirCoordenada() {
-		int[] coordenada = new int[2];
-		for (int i = 0; i < coordenada.length; i++) {
-			coordenada[i] = pedirValor();
-		}
-		return coordenada;
-	}
-
+	
 	public static int pedirValor() {
 		Scanner leer = new Scanner(System.in);
 		int valor = 0;

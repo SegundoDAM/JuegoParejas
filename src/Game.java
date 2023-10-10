@@ -12,6 +12,10 @@ public class Game {
 		} while (!ganador);
 	}
 
+	public Coordenada pedirCoordenada() {
+		return new Coordenada(CoupleParts.pedirValor(), CoupleParts.pedirValor());
+	}
+
 	/**
 	 * controla la jugada actual
 	 * 
@@ -20,28 +24,28 @@ public class Game {
 	 * @return
 	 */
 	public boolean realizarJugada() {
-		int[] origen;
+		Coordenada origen;
 		do {
-			origen = CoupleParts.pedirCoordenada();
+			origen = pedirCoordenada();
 		} while (!revelarPosicion(origen));
 		ocultas.mostrarTablero();
-		int[] destino;
+		Coordenada destino;
 		do {
-			destino = CoupleParts.pedirCoordenada();
+			destino = pedirCoordenada();
 		} while (!revelarPosicion(destino));
 		ocultas.mostrarTablero();
 		boolean comprobacion = tablero.comprobarParejas(origen, destino);
 		CoupleParts.pausar(1);
 		if (!comprobacion) {
-			//TODO juntar las dos llamadas en un solo metodo
+			// TODO juntar las dos llamadas en un solo metodo
 			ocultas.ocultarPosiciones(origen);
 			ocultas.ocultarPosiciones(destino);
 		}
 		ocultas.mostrarTablero();
 		return comprobacion;
 	}
-	
-	public  boolean revelarPosicion(int[] origen) {
+
+	public boolean revelarPosicion(Coordenada origen) {
 		boolean retorno = false;
 		if (ocultas.getValueAt(origen) == -1) {
 			ocultas.setValueAt(origen, tablero.getValueAt(origen));
