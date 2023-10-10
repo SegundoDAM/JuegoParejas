@@ -1,3 +1,4 @@
+package juegouno;
 
 
 public class Constantes {
